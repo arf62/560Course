@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Amipal_2</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Welcome_Message">Welcome to Assignment 2</string>
+    <string name="Main_Button">Click to start</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="Game_Instructions">Stomp when you see the same text and image on screen</string>
+    <string name="title_activity_timed__images">Timed_Images</string>
+
+</resources>
