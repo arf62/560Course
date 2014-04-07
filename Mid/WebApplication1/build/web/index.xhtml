@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Twitter sentiment</title>
+        <script type="text/javascript" src="myJS.js" ></script>
+    <script type="text/javascript" src="jquery-1.8.3.js" ></script>
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+     <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var lat = document.getElementById(lat);
+        var long = document.getElementById(long);
+        var myLatlng = new google.maps.LatLng(37.9642529, -91.8318334);
+        var mapOptions = {
+          center: myLatlng ,
+          zoom: 8
+        };
+      
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+            var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      icon: getCircleRed(7),
+      title: 'No of sad tweets : 10\n\
+No of normal tweets : 100'
+      });
+      
+    var marker2 = new google.maps.Marker({
+      position: new google.maps.LatLng(40.9642529, -75.8318334),
+      map: map,
+      icon: getCircleBlue(9),
+      title: 'Here!'
+      });
+      
+       
+          
+ function getCircleRed(magnitude) {
+  return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: .2,
+    scale: Math.pow(2, magnitude) / Math.PI,
+    strokeColor: 'white',
+    strokeWeight: .5
+  };
+      }  
+      
+      function getCircleBlue(magnitude) {
+  return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'blue',
+    fillOpacity: .2,
+    scale: Math.pow(2, magnitude) / Math.PI,
+    strokeColor: 'white',
+    strokeWeight: .5
+  };
+      } 
+      
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    </h:head>
+    <h:body>
+        <button type="button" onclick="InfoByDate()"> Service </button>  
+        <h:commandButton onclick="" value="Button">
+              
+        </h:commandButton>
+        <h:outputLabel id="lat" value="#{backingbean.latitude}"></h:outputLabel>
+        <h:outputLabel id="long" value="#{backingbean.longitude}"></h:outputLabel>
+               
+        <!--call this service http://maps.googleapis.com/maps/api/geocode/json?address=Missouri&sensor=false -->
+    <div id="map-canvas"/>
+    </h:body>
+</html>
+
